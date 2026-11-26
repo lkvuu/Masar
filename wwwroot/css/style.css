@@ -1,0 +1,132 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c6c6c6;
+}
+
+main {
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #444;
+    overflow: hidden;
+}
+
+
+    nav a {
+        color: #dc8c36;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: inline-block;
+    }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+    nav form {
+        display: inline;
+        margin: 0;
+    }
+
+    nav .btn {
+        background-color: transparent;
+        border: none;
+        color: #dc8c36;
+        font-family: inherit;
+        font-size: inherit;
+        padding: 14px 16px;
+        cursor: pointer;
+    }
+
+form input[type="submit"], form input[type="reset"] {
+    background-color: #2f71ce;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+footer {
+    padding: 10px 40px;
+    text-align: center;
+    background-color: #8d8c8c;
+}
+
+
+.col-md-4 {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: #2f71ce;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-danger {
+    background-color: #c0392b;
+}
+
+.text-danger {
+    color: red;
+}
+
+
+#account, #registerForm {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-floating {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+    .form-floating > .form-control::placeholder {
+        text-align: left;
+    }

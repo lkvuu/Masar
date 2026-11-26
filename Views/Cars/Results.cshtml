@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Masar.Models.Car>
+@{
+    ViewData["Title"] = "Results";
+}
+
+<style>
+    table {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<h2 style="padding: 20px;">Select Your Preferred Car</h2>
+<p style="padding: 20px;">Based on your search criteria, here are the available vehicles:</p>
+
+<p style="padding: 20px;">
+    <strong>Pick-up Location:</strong> @ViewBag.location <br>
+    <strong>Pick-up Date:</strong> @ViewBag.pickupDate <br>
+    <strong>Drop-off Date:</strong> @ViewBag.dropoffDate <br>
+    <strong>Number of rental days:</strong> @ViewBag.days
+</p>
+
+@if (Model.Count() == 0)
+{
+    <p style="padding: 20px; color: red;"><strong>Sorry, no cars match your search.</strong></p>
+}
+
+<table border="1">
+    <caption><strong>Available Cars</strong></caption>
+    <thead>
+        <tr>
+            <th>The car</th>
+            <th>Model & Category</th>
+            <th>Daily Rate</th>
+            <th>Total Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@item.image" alt="@item.name" width="120" height="80"></td>
+                <td><strong>@item.name</strong><br>@item.category</td>
+                <td>@item.price SAR / day</td>
+                <td>@(item.price * ViewBag.days) SAR</td>
+                <td><a asp-controller="Home" asp-action="Privacy" class="book-btn">Book Now</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

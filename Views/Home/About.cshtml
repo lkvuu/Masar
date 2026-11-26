@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+<style>
+
+    table {
+        margin: auto;
+        border-collapse: collapse;
+        text-align: center;
+    }
+</style>
+
+<h1>About Our Company</h1>
+<p>Founded with a passion for mobility and freedom, our car rental service has grown to become a trusted name in the industry. We started with just a small fleet and a big dream to make traveling seamless for everyone</p>
+        
+<hr>
+
+<h2 style="text-align: center;">Our Journey in Numbers</h2>
+<table border="1">
+    <tr>
+        <th>Years of Experience</th>
+        <th>Happy Customers</th>
+        <th>Branch Location</th>
+    </tr>
+
+    <tr>
+        <td>5+ Years</td>
+        <td>20,000+</td>
+        <td>5 branches</td>
+    </tr>
+</table>
+
+<br>
+<hr>
+
+<h2>Our Core Values</h2>
+<ul>
+    <li><strong>Customer First: </strong> Your safety and satisfaction drive everything we do.</li>
+    <li>
+        <strong>Transparency: </strong>
+        <ul>
+            <li>No hidden fees.</li>
+            <li>clear pricing.</li>
+            <li>honest contracts.</li>
+        </ul>
+    </li>
+    <li><strong>Relibility: </strong> Vehicles are rigorusly inspected before every trip</li>
+</ul>
+<br>
+<hr>
+
+<h2 style="text-align: center;">Working Hours & Location</h2>
+<table border="1">
+    <tr>
+        <th>Branch Location</th>
+        <th>Working Days</th>
+        <th>Working Hours</th>
+    </tr>
+
+    <tr>
+        <td>Main Airport Branch</td>
+        <td>Sunday - Saturaday</td>
+        <td>24 / 7 Available</td>
+    </tr>
+
+    <tr>
+        <td>City Center Branch</td>
+        <td>Sunday - Thursday</td>
+        <td>8:00 AM - 10:00 PM</td>
+    </tr>
+</table>
+<br>
+<hr>
+
+<h2>Our Leadership Team</h2>
+<p>Our executive team brings together decades of of experience in logistics customer service, and automotive managment to ensure tou get the absolute best ride.</p>
+<p>
+    <button id="leadersBtn" onclick="toggleLeaders()">Hide Leadership Team</button>
+</p>
+<ul id="leadersList">
+    <li><strong>CEO & Founder:</strong>Nawaf Alghamdi (Leading our strategic vision and expansion).</li>
+    <li><strong>Operations Manger:</strong>Hassan Alqarni (Ensuring vehicle saftey and fleet readiness).</li>
+    <li><strong>Head of Customer:</strong>Mohammed Ali (Dedicated to 24/7 client satisfaction).</li>
+</ul>
+<br>
+<hr>
+
+<p>If you encounter any problems or have any suggestions, you can contact us.</p>
+<p>
+    <a asp-controller="Home" asp-action="Contact">Contact Us</a>
+</p>
+

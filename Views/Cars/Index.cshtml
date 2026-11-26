@@ -1,0 +1,48 @@
+@model IEnumerable<Masar.Models.Car>
+
+@{
+    ViewData["Title"] = "Manage Cars";
+}
+<style>
+    table {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<h1>Manage Cars</h1>
+
+<p>
+    <a asp-action="Create" class="btn">Create New</a>
+</p>
+
+<table border="1">
+    <caption><strong>All Cars</strong></caption>
+    <thead>
+        <tr>
+            <th>The car</th>
+            <th>Model & Category</th>
+            <th>Daily Rate</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@item.image" alt="@item.name" width="120" height="80"></td>
+                <td><strong>@item.name</strong><br>@item.category</td>
+                <td>@item.price SAR / day</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a> |
+                    <a asp-controller="Home" asp-action="Privacy" class="book-btn">Book Now</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

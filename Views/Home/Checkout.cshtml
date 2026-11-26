@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+
+<style>
+
+    .email-form label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+        text-align: left;
+    }
+
+    .email-form input[type="email"] {
+        width: 40%;
+        padding: 8px;
+        border: 1px solid #757474;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+</style>
+
+<h2 style="text-align:center">Booking Confirmed!</h2>
+<h3 style="text-align:center">Thank you for booking with Masar Car Rental.</h3>
+<hr>
+
+<h2>Payment Details</h2>
+<form name="checkoutForm" method="post" asp-controller="Home" asp-action="Index" onreset="showCardFields()">
+        
+    <input type="hidden" name="booking_ref" value="BK-2026-8941">
+    <input type="hidden" name="total_price" value="135.00">
+
+    <p>
+        <strong>Select Payment Method:</strong><br>
+        <label>
+            <input type="radio" name="payment_method" value="credit_card" checked onclick="showCardFields()"> Credit / Debit Card
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="payment_method" value="pay_on_pickup" onclick="hideCardFields()"> Pay upon Pickup
+        </label>
+    </p>
+
+    <div id="cardFields">
+        <p>
+            <label for="card_name">Name on Card:</label><br>
+            <input type="text" id="card_name" name="card_name" placeholder="Enter cardholder name">
+        </p>
+
+        <p>
+            <label for="card_number">Card Number:</label><br>
+            <input type="text" id="card_number" name="card_number" maxlength="16" placeholder="1234 5678 9012 3456">
+        </p>
+
+        <p>
+            <label for="exp_date">Expiry Date:</label><br>
+            <input type="text" id="exp_date" name="exp_date" placeholder="MM/YY" size="5">
+        </p>
+
+        <p>
+            <label for="cvv">CVV / Security Code:</label><br>
+            <input type="password" id="cvv" name="cvv" maxlength="4" size="4" placeholder="123">
+        </p>
+    </div>
+
+    <p>
+        <label>
+            <input type="checkbox" name="agree_payment_terms" required>
+            I authorize the payment for this vehicle reservation.
+        </label>
+    </p>
+    <br>
+    <hr>
+
+    <p>If you would like to receive a confirmation email with your invoice details, please enter your email address below:</p>
+
+    <label for="user-email">Email Address:</label>
+    <input type="email" id="user-email" name="email" placeholder="example@email.com" required>
+    <p>
+        <input type="submit" value="Complete Reservation" onclick="validateCheckout()">
+        <input type="reset" value="Clear Form">
+    </p>
+</form>
+

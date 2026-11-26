@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Account";
+    var cookies = Context.Request.Cookies;
+}
+
+<style>
+    .card {
+        background-color: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 15px;
+    }
+
+    .card-body li {
+        word-break: break-all;
+        margin-bottom: 8px;
+    }
+</style>
+
+<div class="container">
+    <h1 class="mt-5">Account Information</h1>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Cookie Values</h5>
+            <ul>
+                @foreach (var c in cookies)
+                {
+                    <li>@c.Key : @c.Value</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Session Values</h5>
+            <ul>
+                <li>@ViewBag.sessionId</li>
+                <li>@ViewBag.sessionUserName</li>
+            </ul>
+        </div>
+    </div>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary mt-3">Back to Home</a>
+</div>
+

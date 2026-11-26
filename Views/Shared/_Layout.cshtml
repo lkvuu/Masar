@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Masar</title>
+    <script type="importmap"></script>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @*<link rel="stylesheet" href="~/Masar.styles.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        
+        <section id="logo">
+            <img src="/images/logo.svg" alt="Car Rental Logo" width="280" height="150" usemap="#logomap">
+            <map name="logomap">
+                <area shape="rect" coords="0,0,280,150" href="@Url.Action("About", "Home")" alt="About Us">
+            </map>
+        </section>
+
+        <h1 style="color: rgb(47, 113, 206);">Welcome to Our Car Rental Service</h1>
+        <nav>
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Cars" asp-action="SearchForm">Search Cars</a></li>
+                <li><a asp-area="" asp-controller="Account" asp-action="Index">User Account</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-area="" asp-controller="Cars" asp-action="Index">Manage Cars</a></li>
+                }
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+            </ul>
+            <partial name="_LoginPartial" />
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <p style="color: rgb(66, 66, 66);">&copy; 2026 Masar Car Rental. All rights reserved.</p>
+        <address>
+            <p>Contact us: <a href="mailto:info@masarcarrental.com">info@masarcarrental.com</a></p>
+        </address>
+        <a href="#logo">Back to Top</a>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

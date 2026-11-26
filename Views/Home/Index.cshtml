@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<style>
+    select {
+        font-weight: bold;
+    }
+</style>
+
+@if (ViewBag.message != null)
+{
+    <p style="color: green; text-align: center;"><strong>@ViewBag.message</strong></p>
+}
+<h1>Contact Us & feedback</h1>
+<p>Please fill out this form to get in <strong>touch with us or share your feedback </strong> regarding our services</p>
+
+<form name="contactForm" method="post" asp-action="Contact" onreset="formReset()">
+
+    <p>
+        <label>
+            First name:
+            <input type="text" name="fname" size="25" maxlength="30" required onfocus="focusField(this)" onblur="blurField(this)">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Last name:
+            <input type="text" name="lname" size="25" maxlength="30" required onfocus="focusField(this)" onblur="blurField(this)">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Email address:
+            <input type="email" name="email" placeholder="example@email.com" required onfocus="focusField(this)" onblur="blurField(this)">
+        </label>
+    </p>
+
+    <p>Inquiry / Subject</p>
+    <select name="subject">
+        <option>General Inquiry</option>
+        <option>Customer Feedback</option>
+        <option>Technical Support</option>
+        <option>Others</option>
+    </select>
+
+    <p>
+                
+        <textarea name="feedback" rows="10" cols="30" style="color: rgb(99, 99, 99);" onfocus="clearFeedback(this)">Your feedback or massage about our service:</textarea>
+    </p>
+            
+    <p>
+        <input type="submit" value="Submit" onclick="validateContact()">
+        <input type="reset" value="Clear">
+    </p>
+</form>
+
+

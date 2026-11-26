@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Search Cars";
+}
+
+<style>
+        
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        form input[type="search"], form input[type="date"], form input[type="time"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+</style>
+
+<form name="searchForm" method="post" asp-action="ShowSearchFormResult" onreset="formReset()">
+
+            
+    <p>
+        <label for="location">Pick-up Location:</label><br>
+        <input type="search" id="location" name="location" list="branches" required>
+        <datalist id="branches">
+            <option value="Jeddah - King Abdulaziz Intl Airport" />
+            <option value="Riyadh - King Khalid Intl Airport" />
+            <option value="Dammam - King Fahd Intl Airport" />
+            <option value="Al Baha - King Saud Airport" />
+        </datalist>
+    </p>
+
+    <p>
+        <label for="SearchCar">Car Name or Category (optional):</label><br>
+        <input type="search" id="SearchCar" name="SearchCar" placeholder="e.g. Full size, Mid size , Economy">
+    </p>
+
+            
+    <p>
+        <label for="pickup-date">Pick-up Date:</label><br>
+        <input type="date" id="pickup-date" name="pickupDate" required>
+    </p>
+
+            
+    <p>
+        <label for="pickup-time">Pick-up Time:</label><br>
+        <input type="time" id="pickup-time" name="pickup-time" required>
+    </p>
+
+            
+    <p>
+        <label for="dropoff-date">Drop-off Date:</label><br>
+        <input type="date" id="dropoff-date" name="dropoffDate" required>
+    </p>
+
+            
+    <p>
+        <label for="dropoff-time">Drop-off Time:</label><br>
+        <input type="time" id="dropoff-time" name="dropoff-time" required>
+    </p>
+
+            
+    <p style="text-align: center;">
+        <input type="submit" value="Search Cars" onclick="validateSearch()">
+        <input type="reset" value="Clear">
+    </p>
+
+</form>
+
